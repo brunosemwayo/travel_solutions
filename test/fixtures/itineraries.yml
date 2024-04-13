@@ -1,0 +1,33 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  traveller_name: MyString
+  booking_reference: MyString
+  flight_number: MyString
+  flight_class: MyString
+  departure_city: MyString
+  departure_date: 2024-04-13 22:23:48
+  arrival_city: MyString
+  arrival_date: 2024-04-13 22:23:48
+  aircraft: MyString
+  return_flight_number: MyString
+  return_departure_city: MyString
+  return_departure_date: 2024-04-13 22:23:48
+  return_arrival_city: MyString
+  return_arrival_date: 2024-04-13 22:23:48
+
+two:
+  traveller_name: MyString
+  booking_reference: MyString
+  flight_number: MyString
+  flight_class: MyString
+  departure_city: MyString
+  departure_date: 2024-04-13 22:23:48
+  arrival_city: MyString
+  arrival_date: 2024-04-13 22:23:48
+  aircraft: MyString
+  return_flight_number: MyString
+  return_departure_city: MyString
+  return_departure_date: 2024-04-13 22:23:48
+  return_arrival_city: MyString
+  return_arrival_date: 2024-04-13 22:23:48

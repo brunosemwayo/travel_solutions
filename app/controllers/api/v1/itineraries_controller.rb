@@ -1,27 +1,44 @@
-class ItinerariesController < ApplicationController
+class Api::V1::ItinerariesController < ApplicationController
+    before_action :set_itinerary, only: [:show, :update, :destroy]
+  
     # GET /itineraries
     def index
       @itineraries = Itinerary.all
+      render json: @itineraries
     end
   
     # GET /itineraries/new
-    def new
-      @itinerary = Itinerary.new
-    end
+    # This action might still serve HTML to provide a form unless fully API-driven
   
     # POST /itineraries
     def create
       @itinerary = Itinerary.new(itinerary_params)
       if @itinerary.save
-        redirect_to @itinerary, notice: 'Itinerary was successfully created.'
+        render json: @itinerary, status: :created, location: @itinerary
       else
-        render :new
+        render json: @itinerary.errors, status: :unprocessable_entity
       end
     end
   
     # GET /itineraries/:id
     def show
-      set_itinerary
+      render json: @itinerary
+    end
+  
+    # Additional actions like `update` and `destroy` can also be set up to respond with JSON:
+    # PATCH/PUT /itineraries/:id
+    def update
+      if @itinerary.update(itinerary_params)
+        render json: @itinerary
+      else
+        render json: @itinerary.errors, status: :unprocessable_entity
+      end
+    end
+  
+    # DELETE /itineraries/:id
+    def destroy
+      @itinerary.destroy
+      head :no_content
     end
   
     private
