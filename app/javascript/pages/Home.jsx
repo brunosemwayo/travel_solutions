@@ -10,15 +10,17 @@ const HelloWorld = () => {
     fetch("/api/v1/itineraries")
       .then((response) => {
         if (!response.ok) {
-          throw new Error("Network response was not ok: " + response.statusText);
+          throw new Error(
+            "Network response was not ok: " + response.statusText
+          );
         }
         return response.json();
       })
-      .then(data => {
+      .then((data) => {
         console.log("Data received", data);
         setItineraries(data);
       })
-      .catch(error => {
+      .catch((error) => {
         console.error("Error fetching data:", error);
       });
   }, []);
@@ -33,14 +35,15 @@ const HelloWorld = () => {
             <ListItemCard
               key={itinerary.id}
               item={itinerary}
-              linkPath={`/itineraries/${itinerary.id}`}
-              linkLabel="View Details"
-              secondaryLinkPath={`/itineraries/${itinerary.id}/edit`}
-              secondaryLinkLabel="Edit"
               onDelete={() => console.log("Delete", itinerary.id)}
               onEdit={() => console.log("Edit", itinerary.id)}
               onPrint={() => console.log("Print", itinerary.id)}
               onDuplicate={() => console.log("Duplicate", itinerary.id)}
+              additionalContent={
+                <>
+                  <h2 className="text-xl font-semibold">{itinerary.travller_name}</h2>
+                </>
+              }
             />
           ))}
         </ul>
