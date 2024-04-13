@@ -2,15 +2,15 @@ import React from 'react';
 
 const Sidebar = ({ isOpen, toggle }) => {
   return (
-    <div className={`fixed top-0 left-0 h-screen w-48 bg-custom-background text-custom-gray flex flex-col p-2 lg:p-0 transition-transform duration-300 ${isOpen ? 'transform-none' : '-translate-x-full'}`}>
-      <div className="logo-section" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', borderBottom: '1px solid gray', height: '64px' }}>
-        {/* <img src="path_to_logo.jpg" alt="Logo" style={{ height: '50px' }} /> */}
+    <div className={`fixed top-0 left-0 h-screen w-48 bg-gray-100 text-gray-800 flex flex-col p-2 lg:p-0 transition-transform duration-300 ${isOpen ? 'transform-none' : '-translate-x-full'}`}>
+      <div className="flex justify-center items-center border-b border-gray-300 h-16">
+        
       </div>
-      <ul style={{ listStyleType: 'none', padding: 0, width: '100%' }}>
-        <li style={{ borderBottom: '1px solid gray', cursor: 'pointer', padding: '10px' }}>
+      <ul className="list-none p-0 m-0 w-full">
+        <li className="border-b border-gray-300 cursor-pointer py-2 px-4 hover:bg-gray-200">
           Itineraries
         </li>
-        <li style={{ borderBottom: '1px solid gray', cursor: 'pointer', padding: '10px' }}>
+        <li className="border-b border-gray-300 cursor-pointer py-2 px-4 hover:bg-gray-200">
           Quotations
         </li>
       </ul>
