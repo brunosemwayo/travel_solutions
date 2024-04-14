@@ -3,7 +3,11 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :itineraries
+      resources :itineraries do
+        member do
+          get 'print', to: 'itineraries#print_pdf', defaults: { format: 'pdf' }
+        end
+      end
     end
   end
 
