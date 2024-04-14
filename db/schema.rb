@@ -10,27 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_13_202348) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_14_123304) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "itineraries", force: :cascade do |t|
-    t.string "traveller_name"
-    t.string "booking_reference"
+  create_table "flights", force: :cascade do |t|
+    t.bigint "itinerary_id"
     t.string "flight_number"
-    t.string "flight_class"
     t.string "departure_city"
     t.datetime "departure_date"
     t.string "arrival_city"
     t.datetime "arrival_date"
+    t.string "flight_class"
     t.string "aircraft"
-    t.string "return_flight_number"
-    t.string "return_departure_city"
-    t.datetime "return_departure_date"
-    t.string "return_arrival_city"
-    t.datetime "return_arrival_date"
+    t.string "flight_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "seat_number"
+    t.index ["itinerary_id"], name: "index_flights_on_itinerary_id"
+  end
+
+  create_table "itineraries", force: :cascade do |t|
+    t.string "traveller_name"
+    t.string "booking_reference"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "flights", "itineraries"
 end
