@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_14_123304) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_14_133047) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,6 +27,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_14_123304) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "seat_number"
+    t.string "cabin_bag"
+    t.string "checked_bags"
     t.index ["itinerary_id"], name: "index_flights_on_itinerary_id"
   end
 
@@ -35,6 +37,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_14_123304) do
     t.string "booking_reference"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title"
   end
 
   add_foreign_key "flights", "itineraries"
